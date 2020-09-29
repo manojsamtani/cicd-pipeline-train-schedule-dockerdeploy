@@ -26,14 +26,13 @@ pipeline {
                 branch 'master'
             }
             steps {
-                script {
-                    app = docker.build('willbla/train-schedule')
-                    app.inside {
-                        echo "curl localhost:8080"
-                    }
-                }
-            }
-            steps {
+              script {
+                  app = docker.build('willbla/train-schedule')
+                  app.inside {
+                      echo "curl localhost:8080"
+                  }
+              }
+                
               nexusArtifactUploader(
                 nexusVersion: NEXUS_VERSION,
                 protocol: NEXUS_PROTOCOL,
