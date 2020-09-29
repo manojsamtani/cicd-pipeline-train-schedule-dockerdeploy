@@ -40,27 +40,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-              nexusArtifactUploader(
-                nexusVersion: NEXUS_VERSION,
-                protocol: NEXUS_PROTOCOL,
-                nexusUrl: NEXUS_URL,
-                groupId: 'npm_repo_gp',
-                version: '1.10',
-                repository: NEXUS_REPOSITORY,
-                credentialsId: NEXUS_CREDENTIAL_ID,
-                artifacts: [
-                  // Artifact generated such as .jar, .ear and .war files.
-                  [artifactId: 'gradlew',
-                    classifier: '',
-                    file: 'gradlew.bat',
-                    type: 'bat'],
-                    // Lets upload the pom.xml file for additional information for Transitive dependencies
-                  [artifactId: 'package-lock',
-                    classifier: '',
-                    file: 'package-lock.json',
-                    type: "json"]
-                ]
-              );
+              nexusArtifactUploader artifacts: [[artifactId: 'gradlew', classifier: '', file: 'gradlew.bat', type: 'bat']], credentialsId: 'nexus-credentials', groupId: 'npm-repo-gp', nexusUrl: '127.0.0.1:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'npm-repo', version: '1.10'
             }
         }
         
