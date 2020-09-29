@@ -36,9 +36,9 @@ pipeline {
               nexusArtifactUploader(
                 nexusVersion: NEXUS_VERSION,
                 protocol: NEXUS_PROTOCOL,
-                exusUrl: NEXUS_URL,
-                groupId: pom.groupId,
-                version: pom.version,
+                nexusUrl: NEXUS_URL,
+                groupId: 'npm_repo_gp',
+                version: '1.10',
                 repository: NEXUS_REPOSITORY,
                 credentialsId: NEXUS_CREDENTIAL_ID,
                 artifacts: [
