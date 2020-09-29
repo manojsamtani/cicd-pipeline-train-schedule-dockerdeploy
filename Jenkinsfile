@@ -32,7 +32,10 @@ pipeline {
                       echo "curl localhost:8080"
                   }
               }
-                
+            }
+        }
+        
+        stage('upload to nexus') {
               nexusArtifactUploader(
                 nexusVersion: NEXUS_VERSION,
                 protocol: NEXUS_PROTOCOL,
@@ -54,8 +57,8 @@ pipeline {
                     type: "json"]
                 ]
               );
-            }
         }
+        
         stage('Push Docker Image') {
             when {
                 branch 'master'
