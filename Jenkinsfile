@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
               script {
-                  app = docker.build('willbla/train-schedule')
+                  app = docker.build('basebuild/train-schedule')
                   app.inside {
                       echo "curl localhost:8080"
                   }
@@ -40,7 +40,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-              nexusArtifactUploader artifacts: [[artifactId: 'gradlew', classifier: '', file: 'gradlew.bat', type: 'bat']], nexusVersion: 'nexus3', credentialsId: 'nexus-credentials', groupId: 'npm-repo-gp', nexusUrl: '127.0.0.1:8081', protocol: 'http', repository: 'npm-repo', version: '1.10'
+              nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', file: 'users.tar.gz', type: 'tar.gz']], nexusVersion: 'nexus3', credentialsId: 'nexus-credentials', groupId: 'npm-hosted-repo', nexusUrl: '127.0.0.1:8081', protocol: 'http', repository: 'npm-hosted-repo', version: '1.13'
             }
         }
         
