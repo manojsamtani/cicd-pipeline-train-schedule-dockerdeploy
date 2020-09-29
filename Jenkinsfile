@@ -40,7 +40,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-              nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', file: 'users.tar.gz', type: 'tar.gz']], nexusVersion: 'nexus3', credentialsId: 'nexus-credentials', groupId: 'npm-hosted-repo', nexusUrl: '127.0.0.1:8081', protocol: 'http', repository: 'npm-hosted-repo', version: '1.13'
+              nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', file: 'users.tgz', type: 'tgz']], nexusVersion: 'nexus3', credentialsId: 'nexus-credentials', groupId: 'npm-hosted-repo', nexusUrl: '127.0.0.1:8081', protocol: 'http', repository: 'npm-hosted-repo', version: '1.13'
             }
         }
         
