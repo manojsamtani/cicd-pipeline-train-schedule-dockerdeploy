@@ -55,7 +55,7 @@ pipeline {
                     file: 'gradlew.bat',
                     type: 'bat'],
                     // Lets upload the pom.xml file for additional information for Transitive dependencies
-                  [artifactId: ''package-lock',
+                  [artifactId: 'package-lock',
                     classifier: '',
                     file: 'package-lock.json',
                     type: "json"]
