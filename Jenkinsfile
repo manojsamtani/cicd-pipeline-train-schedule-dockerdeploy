@@ -36,6 +36,9 @@ pipeline {
         }
         
         stage('upload to nexus') {
+            when {
+                branch 'master'
+            }
             steps {
               nexusArtifactUploader(
                 nexusVersion: NEXUS_VERSION,
@@ -47,12 +50,12 @@ pipeline {
                 credentialsId: NEXUS_CREDENTIAL_ID,
                 artifacts: [
                   // Artifact generated such as .jar, .ear and .war files.
-                  [artifactId: tarfiles,
+                  [artifactId: 'gradlew',
                     classifier: '',
                     file: 'gradlew.bat',
                     type: 'bat'],
                     // Lets upload the pom.xml file for additional information for Transitive dependencies
-                  [artifactId: json,
+                  [artifactId: ''package-lock',
                     classifier: '',
                     file: 'package-lock.json',
                     type: "json"]
