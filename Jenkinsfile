@@ -40,7 +40,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-              nexusArtifactUploader artifacts: [[artifactId: 'gradlew', classifier: '', file: 'gradlew.bat', type: 'bat']], nexusVersion: 'nexus3', credentialsId: 'nexus-credentials', groupId: 'npm-repo-gp', nexusUrl: '127.0.0.1:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'npm-repo', version: '1.10'
+              nexusArtifactUploader artifacts: [[artifactId: 'gradlew', classifier: '', file: 'gradlew.bat', type: 'bat']], nexusVersion: 'nexus3', credentialsId: 'nexus-credentials', groupId: 'npm-repo-gp', nexusUrl: '127.0.0.1:8081', protocol: 'http', repository: 'npm-repo', version: '1.10'
             }
         }
         
