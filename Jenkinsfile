@@ -36,6 +36,7 @@ pipeline {
         }
         
         stage('upload to nexus') {
+            steps {
               nexusArtifactUploader(
                 nexusVersion: NEXUS_VERSION,
                 protocol: NEXUS_PROTOCOL,
@@ -57,6 +58,7 @@ pipeline {
                     type: "json"]
                 ]
               );
+            }
         }
         
         stage('Push Docker Image') {
