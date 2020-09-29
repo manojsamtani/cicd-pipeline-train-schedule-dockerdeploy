@@ -20,6 +20,7 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
+        
         stage('Build Docker Image') {
             when {
                 branch 'master'
@@ -53,7 +54,7 @@ pipeline {
                     file: 'package-lock.json',
                     type: "json"]
                 ]
-              )
+              );
             }
         }
         stage('Push Docker Image') {
